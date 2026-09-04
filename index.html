@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jyotim — Guided Puja, Mantra Jaap aur Kundali App</title>
+<meta name="description" content="Pandit ji ki awaaz mein 5-7 din ki guided puja, daily mantra jaap, paath aur shubh tithi. Kundali report aapke phone par hi banti hai. Android app.">
+<link rel="canonical" href="https://jyotim.com/">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<meta property="og:title" content="Aapki har manokaamna puri ho!">
+<meta property="og:description" content="Pandit ji ke saath guided puja, mantra jaap, paath, shubh tithi & more — All Free. Jyotim, jald Google Play par.">
+<meta property="og:url" content="https://jyotim.com/">
+<meta property="og:image" content="https://jyotim.com/img/favicon.png">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://jyotim.com/#org",
+      "name": "Jyotim",
+      "url": "https://jyotim.com/",
+      "logo": "https://jyotim.com/img/favicon.png",
+      "email": "support@jyotim.com",
+      "slogan": "Know your path.",
+      "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressRegion": "Delhi", "addressCountry": "IN" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jyotim.com/#website",
+      "name": "Jyotim",
+      "alternateName": "Jyotim App",
+      "url": "https://jyotim.com/",
+      "publisher": { "@id": "https://jyotim.com/#org" },
+      "inLanguage": "hi"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Jyotim",
+      "operatingSystem": "Android",
+      "applicationCategory": "LifestyleApplication",
+      "description": "Pandit ji ke saath guided puja, mantra jaap, paath, shubh tithi aur Kundali report — Hindu devotional app.",
+      "url": "https://jyotim.com/",
+      "publisher": { "@id": "https://jyotim.com/#org" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #F5ECDD; color: #2B2420; }
+  a { color: #B75E16; text-decoration: none; }
+  a:hover { color: #E27B1B; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+  @keyframes flameSway { 0% { transform: rotate(-2.2deg) scaleY(1); } 50% { transform: rotate(2.2deg) scaleY(1.045); } 100% { transform: rotate(-2.2deg) scaleY(1); } }
+  @keyframes glowPulse { 0% { opacity: 0.55; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.12); } 100% { opacity: 0.55; transform: scale(1); } }
+  .flame-body { animation: flameSway 3.6s ease-in-out infinite; transform-origin: 50% 92%; }
+  .flame-glow { animation: glowPulse 3.6s ease-in-out infinite; }
+
+  /* header */
+  .top { display: flex; align-items: center; gap: 9px; padding: 26px 0; }
+  .top .serif { font-size: 24px; }
+
+  /* hero */
+  .hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; padding: 40px 0 90px 0; }
+  .hero h1 { margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(48px, 6.4vw, 92px); line-height: 1.06; }
+  .hero h1 .accent { display: block; font-style: italic; color: #B75E16; padding-left: 0.95em; }
+  .hero .sub { font-size: 16.5px; line-height: 1.75; color: #6B635C; max-width: 470px; margin-top: 30px; }
+  .freechip { background: #E4C77E; color: #2A0B11; font-weight: 700; padding: 2px 10px; border-radius: 7px; white-space: nowrap; }
+  .badge-block { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; margin-top: 28px; }
+  .badge-block img { height: 66px; display: block; }
+  .badge-note { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2.5px; color: #6B635C; padding-left: 10px; }
+  .hero-flame { position: relative; width: 340px; height: 440px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .hero-flame .glow { position: absolute; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(226,123,27,0.34) 0%, rgba(228,199,126,0.14) 52%, rgba(245,236,221,0) 74%); }
+
+  /* carousel */
+  .cards-sec { padding: 0 0 100px 0; }
+  .cards-sec h2 { margin: 0 0 36px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(33px, 3.4vw, 46px); }
+  .car-window { overflow: hidden; width: 100%; }
+  .car-track { display: flex; gap: 22px; width: fit-content; animation: carD 9s ease-in-out infinite; }
+  @keyframes carD { 0% { transform: translateX(0); } 22% { transform: translateX(0); } 33% { transform: translateX(-421px); } 55% { transform: translateX(-421px); } 66% { transform: translateX(-842px); } 92% { transform: translateX(-842px); } 100% { transform: translateX(0); } }
+  .card { position: relative; border-radius: 18px; overflow: hidden; width: 399px; height: 399px; flex-shrink: 0; box-shadow: 0 6px 22px rgba(43,36,32,0.14); }
+  .card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.62) 100%); }
+  .card .txt { position: absolute; left: 22px; right: 22px; bottom: 20px; display: flex; flex-direction: column; gap: 3px; }
+  .card .hi { font-size: 25px; font-weight: 700; color: #FFFFFF; line-height: 1.15; }
+  .card .en { font-size: 15px; color: rgba(255,255,255,0.88); }
+  .card.soon { background: linear-gradient(150deg, #4A141C 0%, #2A0B11 100%); }
+  .card.soon .lib { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; color: #CBA256; }
+  .card.soon .tag { position: absolute; top: 16px; right: 16px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: #2A0B11; background: #E4C77E; border-radius: 999px; padding: 5px 12px; }
+
+  /* disha */
+  .disha { background: #4A141C; padding: 96px 0; }
+  .disha h2 { margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(36px, 4vw, 58px); line-height: 1.15; color: #F5ECDD; }
+  .disha h2 .accent { font-style: italic; color: #E4C77E; }
+  .offer-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; margin-top: 44px; }
+  .offer { border-top: 1px solid rgba(203,162,86,0.4); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .offer .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #CBA256; }
+  .offer .t { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; font-weight: 500; color: #F5ECDD; line-height: 1.25; }
+  .offer .g { font-size: 14px; line-height: 1.6; color: #BCA98C; }
+  .offer-list { display: none; }
+  .freepill { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 1.5px; color: #2A0B11; background: #E4C77E; border-radius: 999px; padding: 10px 22px; margin-top: 44px; }
+
+  /* kundali */
+  .kund { background: #1B0609; padding: 96px 0 0 0; }
+  .kund .cols { display: flex; justify-content: space-between; align-items: center; gap: 70px; }
+  .kund h2 { margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.18; color: #F5ECDD; }
+  .kund h2 .accent { font-style: italic; color: #E4C77E; }
+  .dob-row { display: flex; gap: 12px; margin: 22px 0; }
+  .dob { height: 46px; background: #FFFFFF; border: 1.5px solid rgba(226,123,27,0.45); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 600; color: #6B635C; }
+  .dob.d2 { width: 72px; } .dob.d4 { width: 100px; }
+  .kund .body { font-size: 16px; line-height: 1.75; color: #BCA98C; max-width: 580px; margin-top: 22px; }
+  .kund .badge-row { display: flex; align-items: center; gap: 24px; margin-top: 26px; flex-wrap: wrap; }
+  .kund .badge-row img { height: 60px; display: block; }
+  .kund .dign { font-size: 13px; color: #6B635C; }
+  .plan { width: 330px; flex-shrink: 0; background: #FFFFFF; border-radius: 18px; padding: 22px; box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+  .plan .ov { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; color: #B75E16; }
+  .plan .tt { font-size: 17px; font-weight: 700; margin: 4px 0 8px 0; }
+  .prow { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid rgba(43,36,32,0.08); }
+  .prow .n { width: 34px; height: 34px; border-radius: 17px; background: #F2E8D9; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 13px; flex-shrink: 0; }
+  .prow .c { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+  .prow .pt { font-size: 13.5px; font-weight: 700; }
+  .prow .pm { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6B635C; }
+  .prow .ar { color: #B75E16; font-size: 16px; }
+  .bless { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(24px, 2.4vw, 30px); font-style: italic; color: #CBA256; text-align: center; margin: 56px 0 22px 0; }
+  .foot { border-top: 1px solid rgba(203,162,86,0.22); padding: 26px 0 32px 0; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .foot .brand { display: flex; align-items: center; gap: 8px; }
+  .foot .brand .serif { font-size: 17px; color: #F5ECDD; }
+  .foot .cpy { font-size: 12px; color: #6B635C; margin-left: 10px; }
+  .foot .links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .foot .links a { font-size: 12.5px; color: #BCA98C; }
+
+  @media (prefers-reduced-motion: reduce) { .flame-body, .flame-glow, .car-track { animation: none; } }
+
+  /* ── phone ── */
+  @media (max-width: 760px) {
+    .wrap { padding: 0 32px; }
+    .hero { flex-direction: column; align-items: stretch; gap: 0; padding: 12px 0 60px 0; text-align: center; }
+    .hero h1 { text-align: center; font-size: 44px; }
+    .hero h1 .accent { padding-left: 0; }
+    .hero .sub { margin: 26px auto 0 auto; text-align: center; font-size: 15px; max-width: 300px; }
+    .badge-block { align-items: center; margin-top: 24px; }
+    .badge-block img { height: 58px; }
+    .badge-note { padding-left: 0; font-size: 9.5px; }
+    .hero-flame { display: none; }
+    .car-track { gap: 14px; animation: carM 12s ease-in-out infinite; }
+    @keyframes carM { 0% { transform: translateX(0); } 21% { transform: translateX(0); } 25% { transform: translateX(-181px); } 46% { transform: translateX(-181px); } 50% { transform: translateX(-362px); } 71% { transform: translateX(-362px); } 75% { transform: translateX(-543px); } 96% { transform: translateX(-543px); } 100% { transform: translateX(0); } }
+    .card { width: 167px; height: 167px; border-radius: 14px; }
+    .card .txt { left: 12px; right: 12px; bottom: 11px; gap: 1px; }
+    .card .hi { font-size: 17.5px; line-height: 1.18; }
+    .card .en { font-size: 13px; }
+    .card.soon .tag { top: 8px; right: 8px; font-size: 8.5px; padding: 4px 9px; }
+    .card.soon .lib { font-size: 8px; }
+    .disha { padding: 44px 0 48px 0; }
+    .offer-grid { display: none; }
+    .offer-list { display: flex; flex-direction: column; gap: 15px; margin-top: 24px; }
+    .oli { display: flex; gap: 12px; align-items: baseline; }
+    .oli .num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #CBA256; width: 20px; flex-shrink: 0; }
+    .oli .t { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 500; color: #F5ECDD; line-height: 1.4; }
+    .oli .t .g { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12.5px; color: #BCA98C; }
+    .freepill { margin-top: 24px; font-size: 11.5px; padding: 9px 18px; }
+    .kund { padding: 56px 0 0 0; }
+    .kund .cols { flex-direction: column; align-items: stretch; gap: 26px; }
+    .dob-row { justify-content: center; margin: 14px 0 0 0; gap: 9px; }
+    .dob { height: 42px; font-size: 17px; }
+    .dob.d2 { width: 62px; } .dob.d4 { width: 86px; }
+    .kund .body { font-size: 14.5px; margin-top: 0; }
+    .plan { width: 100%; max-width: 330px; margin: 0 auto; padding: 20px; }
+    .kund .badge-row { justify-content: center; }
+    .foot { flex-direction: column; text-align: center; }
+    .cards-sec h2 { text-align: center; }
+    .disha h2 { text-align: center; }
+    .freepill { display: table; margin: 24px auto 0 auto; }
+    .kund h2 { text-align: center; }
+    .kund .body { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <svg class="flame-body" width="19" height="25" viewBox="0 0 24 32" fill="none" aria-hidden="true">
+    <path d="M12 2C10 8 5 12 5 19a7 7 0 0 0 14 0c0-4-2.2-6.5-4-9.5-.9 2.2-2.6 3.4-3 5.5C10.2 12.3 11.6 6.5 12 2Z" fill="#E27B1B"/>
+    <path d="M12 13c-1 2.4-3 4-3 6.8a3 3 0 0 0 6 0c0-2-1.4-3.6-2.4-5.4-.2.8-.5 1.4-.6 2C11.6 15.2 11.9 14 12 13Z" fill="#E4C77E"/>
+  </svg>
+  <span class="serif">jyotim</span>
+</header>
+
+<section class="wrap hero">
+  <div>
+    <h1>Aapki har<span class="accent">manokaamna</span>puri ho!</h1>
+    <p class="sub">Pandit ji ke saath guided puja, mantra jaap, paath, shubh tithi &amp; more — <span class="freechip">All Free</span></p>
+    <div class="badge-block">
+      <img src="/img/play_badge.png" alt="Get it on Google Play — coming soon">
+      <span class="badge-note">COMING SOON</span>
+    </div>
+  </div>
+  <div class="hero-flame" aria-hidden="true">
+    <div class="flame-glow glow"></div>
+    <svg class="flame-body" width="190" height="253" viewBox="0 0 24 32" fill="none" style="position: relative;">
+      <path d="M12 2C10 8 5 12 5 19a7 7 0 0 0 14 0c0-4-2.2-6.5-4-9.5-.9 2.2-2.6 3.4-3 5.5C10.2 12.3 11.6 6.5 12 2Z" fill="#E27B1B"/>
+      <path d="M12 13c-1 2.4-3 4-3 6.8a3 3 0 0 0 6 0c0-2-1.4-3.6-2.4-5.4-.2.8-.5 1.4-.6 2C11.6 15.2 11.9 14 12 13Z" fill="#E4C77E"/>
+    </svg>
+  </div>
+</section>
+
+<section class="wrap cards-sec">
+  <h2 class="serif">Har Manokaamna Ka Apna Raasta</h2>
+  <div class="car-window">
+    <div class="car-track">
+      <div class="card"><img src="/img/marriage.jpg" alt="Var ki Prapti"><div class="scrim"></div><div class="txt"><div class="hi">Var ki Prapti</div><div class="en">Get married</div></div></div>
+      <div class="card"><img src="/img/child.jpg" alt="Santaan ki Prapti"><div class="scrim"></div><div class="txt"><div class="hi">Santaan ki Prapti</div><div class="en">A child</div></div></div>
+      <div class="card"><img src="/img/career.jpg" alt="Naukri mein Samriddhi"><div class="scrim"></div><div class="txt"><div class="hi">Naukri mein Samriddhi</div><div class="en">Career growth</div></div></div>
+      <div class="card"><img src="/img/business.jpg" alt="Vyapar mein Vriddhi"><div class="scrim"></div><div class="txt"><div class="hi">Vyapar mein Vriddhi</div><div class="en">Business success</div></div></div>
+      <div class="card soon"><img src="/img/loan.jpg" alt="Karz se Mukti — loan paid"><span class="tag">JALD HI</span><div class="scrim"></div><div class="txt"><div class="hi">Karz se Mukti</div><div class="en">Freedom from loan</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="disha">
+  <div class="wrap">
+    <h2>Apni bhakti ko <span class="accent">sahi disha</span> dijiye.</h2>
+    <div class="offer-grid">
+      <div class="offer"><div class="num">01</div><div class="t">Pandit ji ke saath divya pujan</div><div class="g">Guided puja.</div></div>
+      <div class="offer"><div class="num">02</div><div class="t">Har manokaamna ki shubh tithi aur uski sahi puja</div></div>
+      <div class="offer"><div class="num">03</div><div class="t">Shaktishali mantra uchharan</div><div class="g">Counter ke saath.</div></div>
+      <div class="offer"><div class="num">04</div><div class="t">Bhakti bhare paath</div><div class="g">Sri Suktam, Hanuman Chalisa, Vishnu Sahasranama aur bhi kai — saath mein padhiye.</div></div>
+      <div class="offer"><div class="num">05</div><div class="t">Puja ka prasad apne friends aur family mein baantiye</div></div>
+    </div>
+    <div class="offer-list">
+      <div class="oli"><span class="num">01</span><div class="t">Pandit ji ke saath divya pujan <span class="g">— Guided puja</span></div></div>
+      <div class="oli"><span class="num">02</span><div class="t">Har manokaamna ki shubh tithi aur uski sahi puja</div></div>
+      <div class="oli"><span class="num">03</span><div class="t">Shaktishali mantra uchharan <span class="g">— counter ke saath</span></div></div>
+      <div class="oli"><span class="num">04</span><div class="t">Bhakti bhare paath <span class="g">— Sri Suktam, Hanuman Chalisa, Vishnu Sahasranama aur bhi kai</span></div></div>
+      <div class="oli"><span class="num">05</span><div class="t">Puja ka prasad apne friends aur family mein baantiye</div></div>
+    </div>
+    <span class="freepill">Yeh Sab Free Hai</span>
+  </div>
+</section>
+
+<section class="kund">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>Date of Birth dalo —</h2>
+        <div class="dob-row" aria-hidden="true">
+          <div class="dob d2">DD</div>
+          <div class="dob d2">MM</div>
+          <div class="dob d4">YYYY</div>
+        </div>
+        <h2><span class="accent">Get detailed Kundali report.</span></h2>
+        <p class="body">Aapki kundali mein 9 mukhya dosh aur uski apni kamzoriyan — dono check hoti hain. Har finding ke liye ek upaay plan milta hai — mantra jaap, paath, puja aur daan punya vidhi, app mein guided. Saath hi prasad ki seva bhi.</p>
+        <div class="badge-row">
+          <img src="/img/play_badge.png" alt="Get it on Google Play — coming soon">
+          <span class="dign">Hum disha dikhate hain — phal Bhagwan ke haath.</span>
+        </div>
+      </div>
+      <div class="plan">
+        <div class="ov">UPAAY PLAN</div>
+        <div class="tt">Vyapar Kundali aur Upaay</div>
+        <div class="prow"><div class="n">1</div><div class="c"><div class="pt">Maha Mrityunjaya jaap</div><div class="pm">Har Roz &middot; 108 Jaap &middot; 6 Week</div></div><span class="ar">&rsaquo;</span></div>
+        <div class="prow"><div class="n">2</div><div class="c"><div class="pt">Vishnu Sahasranama Paath</div><div class="pm">Har Budhvar &middot; 20 min &middot; 6 Week</div></div><span class="ar">&rsaquo;</span></div>
+        <div class="prow"><div class="n">3</div><div class="c"><div class="pt">Maa Lakshmi &amp; Kuber Maharaj puja</div><div class="pm">Har Roz &middot; 5 Din &middot; 10-15 min</div></div><span class="ar">&rsaquo;</span></div>
+        <div class="prow"><div class="n">4</div><div class="c"><div class="pt">Daan punya vidhi</div><div class="pm">Shanivar &middot; Til daan</div></div><span class="ar">&rsaquo;</span></div>
+      </div>
+    </div>
+    <div class="bless">Shraddha aapki. Vidhi hamari.</div>
+    <div class="foot">
+      <div class="brand">
+        <svg width="13" height="17" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M12 2C10 8 5 12 5 19a7 7 0 0 0 14 0c0-4-2.2-6.5-4-9.5-.9 2.2-2.6 3.4-3 5.5C10.2 12.3 11.6 6.5 12 2Z" fill="#E27B1B"/></svg>
+        <span class="serif">jyotim</span>
+        <span class="cpy">&copy; 2026 Jyotim &middot; New Delhi, India</span>
+      </div>
+      <div class="links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="mailto:support@jyotim.com">Koi sawaal? support@jyotim.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
