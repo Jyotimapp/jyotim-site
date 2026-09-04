@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jyotim.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://jyotim.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jyotim.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jyotim.com/delete-account/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
+<!-- The three legal pages are deliberately NOT listed: each carries <meta name="robots"
+     content="noindex, follow">, so listing them would tell Search Console to index pages that
+     refuse indexing — reported as "Excluded by noindex" on every crawl. noindex is the right call
+     for boilerplate legal text: it keeps the homepage as the single result for "Jyotim" instead of
+     letting a privacy policy compete with it. If /delete-account/ should ever be findable for
+     "how to delete my Jyotim account", drop its noindex AND re-add it here — never one without
+     the other. -->
