@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
 <title>Jyotim — Guided Puja, Mantra Jaap aur Kundali App</title>
 <meta name="description" content="Pandit ji ki awaaz mein 5-7 din ki guided puja, daily mantra jaap, paath aur shubh tithi. Kundali report aapke phone par hi banti hai. Android app.">
 <link rel="canonical" href="https://jyotim.com/">
@@ -142,6 +143,8 @@
   /* ── phone ── */
   @media (max-width: 760px) {
     .wrap { padding: 0 32px; }
+    /* MUST come after .wrap: the shorthand above wipes .cards-sec padding-bottom (same specificity, later source). */
+    .cards-sec { padding: 0 32px 60px 32px; }
     .hero { flex-direction: column; align-items: stretch; gap: 0; padding: 12px 0 60px 0; text-align: center; }
     .hero h1 { text-align: center; font-size: 44px; }
     .hero h1 .accent { padding-left: 0; }
@@ -151,8 +154,8 @@
     .badge-note { padding-left: 0; font-size: 9.5px; }
     .hero-flame { display: none; }
     .car-track { gap: 14px; animation: carM 12s ease-in-out infinite; }
-    @keyframes carM { 0% { transform: translateX(0); } 21% { transform: translateX(0); } 25% { transform: translateX(-181px); } 46% { transform: translateX(-181px); } 50% { transform: translateX(-362px); } 71% { transform: translateX(-362px); } 75% { transform: translateX(-543px); } 96% { transform: translateX(-543px); } 100% { transform: translateX(0); } }
-    .card { width: 167px; height: 167px; border-radius: 14px; }
+    @keyframes carM { 0% { transform: translateX(0); } 21% { transform: translateX(0); } 25% { transform: translateX(calc((56px - 100vw) / 2)); } 46% { transform: translateX(calc((56px - 100vw) / 2)); } 50% { transform: translateX(calc(56px - 100vw)); } 71% { transform: translateX(calc(56px - 100vw)); } 75% { transform: translateX(calc((168px - 300vw) / 2)); } 96% { transform: translateX(calc((168px - 300vw) / 2)); } 100% { transform: translateX(0); } }
+    .card { width: calc((100vw - 84px) / 2); height: calc((100vw - 84px) / 2); border-radius: 14px; }
     .card .txt { left: 12px; right: 12px; bottom: 11px; gap: 1px; }
     .card .hi { font-size: 17.5px; line-height: 1.18; }
     .card .en { font-size: 13px; }
@@ -168,10 +171,10 @@
     .freepill { margin-top: 24px; font-size: 11.5px; padding: 9px 18px; }
     .kund { padding: 56px 0 0 0; }
     .kund .cols { flex-direction: column; align-items: stretch; gap: 26px; }
-    .dob-row { justify-content: center; margin: 14px 0 0 0; gap: 9px; }
+    .dob-row { justify-content: center; margin: 16px 0 22px 0; gap: 9px; }
     .dob { height: 42px; font-size: 17px; }
     .dob.d2 { width: 62px; } .dob.d4 { width: 86px; }
-    .kund .body { font-size: 14.5px; margin-top: 0; }
+    .kund .body { font-size: 14.5px; margin-top: 12px; }
     .plan { width: 100%; max-width: 330px; margin: 0 auto; padding: 20px; }
     .kund .badge-row { justify-content: center; }
     .foot { flex-direction: column; text-align: center; }
