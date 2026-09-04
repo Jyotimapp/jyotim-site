@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
 <title>Delete your account — Jyotim</title>
 <meta name="robots" content="noindex, follow">
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
 <style>
+  /* Opt out of forced dark mode — Chrome auto-dark and the Google app's in-app browser darken any
+     page that does not declare its schemes, which inverts the cream ground. See dist/index.html. */
+  :root { color-scheme: only light; }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #F5ECDD; color: #2B2420; }
   a { color: #B75E16; text-decoration: none; } a:hover { color: #E27B1B; }

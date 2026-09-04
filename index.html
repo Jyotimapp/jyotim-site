@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google" content="notranslate">
+<meta name="color-scheme" content="only light">
 <title>Jyotim — Guided Puja, Mantra Jaap aur Kundali App</title>
 <meta name="description" content="Pandit ji ki awaaz mein 5-7 din ki guided puja, daily mantra jaap, paath aur shubh tithi. Kundali report aapke phone par hi banti hai. Android app.">
 <link rel="canonical" href="https://jyotim.com/">
@@ -52,6 +53,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 <style>
+  /* The brand ground is warm cream. Chrome's auto-dark-theme and the Google app's in-app browser
+     force-darken any page that does not say which schemes it supports — which turned the cream to
+     brown and put a grey box round the Play badge. 'only light' opts out; do not remove it without
+     building a real dark palette for the whole warm/maroon identity. */
+  :root { color-scheme: only light; }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #F5ECDD; color: #2B2420; }
   a { color: #B75E16; text-decoration: none; }
