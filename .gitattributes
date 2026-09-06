@@ -1,0 +1,4 @@
+# This repo is served verbatim by GitHub Pages — never let git rewrite line endings.
+# Without this, a Windows checkout gets CRLF while the repo (and the live site) have LF,
+# so the working copy never matches what is actually published.
+* -text
