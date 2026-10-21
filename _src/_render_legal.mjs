@@ -130,9 +130,10 @@ ${bodyHtml}
 // PATHS — this script lives in jyotim-website/_src/.
 // The legal markdown is the SINGLE SOURCE and stays in the APP repo: it is a company document the
 // app also references (src/constants/legal.js), not a website file. Output goes to the repo ROOT,
-// because THIS repo is the published site. Both assume jyotim-website/ and 06_PujaDaysApp/ are
+// because THIS repo is the published site. Both assume jyotim-website/ and Jyotim_v1/ are
 // SIBLINGS — if that ever changes, LEGAL below is the only line to fix.
-const LEGAL = '../../06_PujaDaysApp/legal/';
+// Jyotim_v1 since 2026-10-21: 06_PujaDaysApp is a frozen archive, and its legal/ stopped at 3 September.
+const LEGAL = '../../Jyotim_v1/legal/';
 const jobs = [
   [LEGAL + 'PRIVACY_POLICY.md', '../privacy/index.html', 'Privacy Policy'],
   [LEGAL + 'TERMS_OF_SERVICE.md', '../terms/index.html', 'Terms of Service'],

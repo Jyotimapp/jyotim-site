@@ -17,7 +17,7 @@ https://jyotim.com. There is no build step for the landing page and no staging e
 
 ## The legal pages are generated, and their source is in the APP repo
 
-`legal/PRIVACY_POLICY.md`, `TERMS_OF_SERVICE.md` and `DELETE_ACCOUNT.md` live in **`06_PujaDaysApp/legal/`**,
+`legal/PRIVACY_POLICY.md`, `TERMS_OF_SERVICE.md` and `DELETE_ACCOUNT.md` live in **`Jyotim_v1/legal/`** (06_PujaDaysApp is frozen since 2026-10-19),
 not here. That is deliberate: they are company documents the app also references
 (`src/constants/legal.js` publishes their URLs), so they have exactly one source.
 
@@ -25,13 +25,13 @@ To change a legal page:
 
 ```bash
 # 1. edit the markdown in the APP repo
-#    06_PujaDaysApp/legal/PRIVACY_POLICY.md
+#    Jyotim_v1/legal/PRIVACY_POLICY.md
 # 2. regenerate the HTML here
 cd _src && node _render_legal.mjs
 # 3. review locally, then commit + push from the repo root
 ```
 
-⚠ `_render_legal.mjs` assumes **`jyotim-website/` and `06_PujaDaysApp/` are siblings**. If that
+⚠ `_render_legal.mjs` assumes **`jyotim-website/` and `Jyotim_v1/` are siblings**. If that
 changes, the `LEGAL` constant at the bottom of that file is the only line to fix.
 
 ## Reviewing before you publish
