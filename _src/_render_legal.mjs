@@ -7,7 +7,11 @@ import { fileURLToPath } from 'url';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const linkHref = (t) =>
-  /PRIVACY_POLICY/.test(t) ? '/privacy/' : /TERMS_OF_SERVICE/.test(t) ? '/terms/' : t;
+  /PRIVACY_POLICY/.test(t) ? '/privacy/'
+    : /TERMS_OF_SERVICE/.test(t) ? '/terms/'
+    : /REFUND_POLICY/.test(t) ? '/refund-policy/'
+    : /DELETE_ACCOUNT/.test(t) ? '/delete-account/'
+    : t;
 const inline = (s) =>
   esc(s)
     .replace(/\[(.+?)\]\((.+?)\)/g, (_, txt, href) => `<a href="${linkHref(href)}">${txt}</a>`)
@@ -140,6 +144,8 @@ const jobs = [
   // Play's account-deletion policy: an app with accounts must publish a web URL where a user who has
   // uninstalled can still request deletion. This URL goes into the Data Safety form.
   [LEGAL + 'DELETE_ACCOUNT.md', '../delete-account/index.html', 'Delete your account'],
+  // Payment gateways (Razorpay KYC, 2026-10-21) check for a refund and cancellation page with prices.
+  [LEGAL + 'REFUND_POLICY.md', '../refund-policy/index.html', 'Refund and Cancellation Policy'],
 ];
 for (const [src, dst, title] of jobs) {
   const md = fs.readFileSync(fileURLToPath(new URL(src, import.meta.url)), 'utf8');

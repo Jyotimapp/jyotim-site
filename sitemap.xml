@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jyotim.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
 </urlset>
-<!-- The three legal pages are deliberately NOT listed: each carries <meta name="robots"
+<!-- The legal pages (privacy, terms, delete-account, refund-policy) are deliberately NOT listed: each carries <meta name="robots"
      content="noindex, follow">, so listing them would tell Search Console to index pages that
      refuse indexing — reported as "Excluded by noindex" on every crawl. noindex is the right call
      for boilerplate legal text: it keeps the homepage as the single result for "Jyotim" instead of
