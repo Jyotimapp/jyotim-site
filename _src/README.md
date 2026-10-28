@@ -78,5 +78,5 @@ while the repo and the live site have LF, and the working copy silently stops ma
 ## Launch day
 
 One change: in `index.html`, wrap the Play badge in a link to
-`https://play.google.com/store/apps/details?id=com.pujadays.app` and delete the `COMING SOON` span.
+`https://play.google.com/store/apps/details?id=com.jyotim.app` and delete the `COMING SOON` span.
 Exact before/after markup is kept with the project notes.
