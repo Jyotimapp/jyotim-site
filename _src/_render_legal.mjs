@@ -96,6 +96,7 @@ const shell = (title, bodyHtml, dateStr) => `<!doctype html>
   a { color: #B75E16; text-decoration: none; } a:hover { color: #E27B1B; }
   header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #E7D8C0; }
   header .brand { display: flex; align-items: center; gap: 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 21px; font-weight: 600; color: #2B2420; }
+  .tm { font-size: 0.42em; vertical-align: super; letter-spacing: 0; }
   main { max-width: 680px; margin: 0 auto; padding: 44px 24px 72px 24px; }
   .ov { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2.5px; color: #B75E16; }
   h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 42px; font-weight: 600; line-height: 1.1; margin: 10px 0 6px 0; }
@@ -118,7 +119,7 @@ const shell = (title, bodyHtml, dateStr) => `<!doctype html>
 <header>
   <a class="brand" href="/">
     <svg width="15" height="20" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M12 2C10 8 5 12 5 19a7 7 0 0 0 14 0c0-4-2.2-6.5-4-9.5-.9 2.2-2.6 3.4-3 5.5C10.2 12.3 11.6 6.5 12 2Z" fill="#E27B1B"/></svg>
-    jyotim
+    <span>jyotim<span class="tm">&trade;</span></span>
   </a>
   <a href="/" style="font-size: 13px; color: #6B635C;">&larr; jyotim.com</a>
 </header>
