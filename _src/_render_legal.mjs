@@ -138,7 +138,7 @@ ${bodyHtml}
 // because THIS repo is the published site. Both assume jyotim-website/ and Jyotim_v1/ are
 // SIBLINGS — if that ever changes, LEGAL below is the only line to fix.
 // Jyotim_v1 since 2026-10-21: 06_PujaDaysApp is a frozen archive, and its legal/ stopped at 3 September.
-const LEGAL = '../../Jyotim_v1/legal/';
+const LEGAL = '../../Jyotim_v2/legal/';
 const jobs = [
   [LEGAL + 'PRIVACY_POLICY.md', '../privacy/index.html', 'Privacy Policy'],
   [LEGAL + 'TERMS_OF_SERVICE.md', '../terms/index.html', 'Terms of Service'],
